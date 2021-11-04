@@ -13,13 +13,7 @@
 		</h:panelGroup>
 		
 		<h:panelGroup>
-			<p:menubar>
-				<p:submenu value="Login_BEAN.usuario.id">
-					<p:menuitem value="1" actionListener="#{Piso_BEAN.id_agente}" update="@all" />
-					<p:menuitem value="2" actionListener="#{Piso_BEAN.id_agente}" update="@all" />
-				</p:submenu>
-			</p:menubar>
-			
+			<p:inputText id="id_agente" value="#{Piso_BEAN.id_agente}" required="true" requiredMessage="#{msgs.id_agente}: #{msgs.obligatorio}" />
 		</h:panelGroup>
 	
 		<h:panelGroup>
