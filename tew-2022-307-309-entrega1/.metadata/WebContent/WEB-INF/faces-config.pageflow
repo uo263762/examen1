@@ -7,7 +7,7 @@
   <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="178" id="pf16359898504768" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf16359898504769 pf163599408680218" path="*"/>
   <nodes xsi:type="pageflow:PFPage" name="error.xhtml" x="338" y="178" id="pf163598985047610" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" inlinks="pf16359898504769 pf163599385216116" path="/error.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="formularios/editar_cliente.xhtml" x="122" y="562" id="pf163599105929913" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf163599108134014 pf163599108134015 pf163599385216116" path="alta_cliente.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="a" x="338" y="946" id="pf163599677305920" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf163599677305921 pf163599677305819 pf16360280837032 pf16360280837033" path="/app/agente/*"/>
+  <nodes xsi:type="pageflow:PFPage" name="a" x="338" y="946" id="pf163599677305920" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf163599677305921 pf163599677305819 pf16360280837032 pf16360280837033 pf163603101939546" path="/app/agente/*"/>
   <nodes xsi:type="pageflow:PFPage" name="app/agente/pisos.xhtml" x="554" y="1138" id="pf163599677305922" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" outlinks="pf16360280837034 pf16360280837035" inlinks="pf163599677305921 pf16360280837036" path="/app/agente/pisos.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="app/agente/citas_pendientes.xhtml" x="554" y="1532" id="pf16360280837037" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" outlinks="pf16360280837038" inlinks="pf16360280837032 pf16360280837039" path="/app/agente/citas_pendientes.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="app/agente/alta_piso.xhtml" x="770" y="1138" id="pf163602808370310" referenceLink="//@navigationRule.9/@navigationCase.1/@toViewId|" outlinks="pf16360280837036" inlinks="pf16360280837034 pf16360280837035" path="/app/agente/alta_piso.xhtml"/>
@@ -17,8 +17,10 @@
   <nodes xsi:type="pageflow:PFPage" name="app/cliente/citas_pendientes.xhtml" x="338" y="1330" id="pf163602808370318" referenceLink="//@navigationRule.8/@navigationCase.2/@toViewId|" inlinks="pf163602808370314" path="/app/cliente/citas_pendientes.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="app/cliente/alta_cita.xhtml" x="554" y="2300" id="pf163602808370319" referenceLink="//@navigationRule.9/@navigationCase.1/@toViewId|" inlinks="pf163602808370316" path="/app/cliente/alta_cita.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="app/cliente/error_cita.xhtml" x="554" y="2684" id="pf163602808370320" referenceLink="//@navigationRule.9/@navigationCase.2/@toViewId|" inlinks="pf163602808370317" path="/app/cliente/error_cita.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="app/agente/duplicar_pisos.xhtml" id="pf163602808370321" referenceLink="//@navigationRule.8/@fromViewId|" outlinks="pf163602983857242" inlinks="pf16360280837033 pf163602983857243" path="/app/agente/duplicar_pisos.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="app/agente/duplicar_piso.xhtml" id="pf163602983857244" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" outlinks="pf163602983857243" inlinks="pf163602983857242" path="/app/agente/duplicar_piso.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="app/agente/duplicar_pisos.xhtml" id="pf163602808370321" referenceLink="//@navigationRule.11/@navigationCase.0/@toViewId|" outlinks="pf163602983857242" inlinks="pf16360280837033 pf163602983857243" path="/app/agente/duplicar_pisos.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="app/agente/duplicar_piso.xhtml" id="pf163602983857244" referenceLink="//@navigationRule.10/@navigationCase.0/@toViewId|" outlinks="pf163602983857243" inlinks="pf163602983857242" path="/app/agente/duplicar_piso.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="app/agente/duplicar_pisos_agente.xhtml" id="pf163603101939547" referenceLink="//@navigationRule.11/@navigationCase.0/@toViewId|" outlinks="pf163603101939548" inlinks="pf163603101939546 pf163603101939549" path="/app/agente/duplicar_pisos_agente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="app/agente/duplicar_piso_agente.xhtml" id="pf163603101939550" referenceLink="//@navigationRule.11/@fromViewId|" outlinks="pf163603101939549" inlinks="pf163603101939548" path="/app/agente/duplicar_piso_agente.xhtml"/>
   <links id="pf16359896560431" target="pf16359896560434" source="pf16359896560430" outcome="ALTA"/>
   <links id="pf16359896560432" target="pf16359896560435" source="pf16359896560430" outcome="EXITO_AGENTE" fromaction="#{Login_BEAN.check_login}"/>
   <links id="pf16359896560433" target="pf16359896560436" source="pf16359896560430" outcome="EXITO_CLIENTE" fromaction="#{Login_BEAN.check_login}"/>
@@ -41,7 +43,10 @@
   <links id="pf16360280837031" target="pf16359896560436" source="pf163602808370315" outcome="HOME"/>
   <links id="pf163602808370316" target="pf163602808370319" source="pf163602808370315" outcome="VISITAR"/>
   <links id="pf163602808370317" target="pf163602808370320" source="pf163602808370315" outcome="ERROR" fromaction="#{PisosParaVisitar.pedirCita}"/>
-  <links id="pf16360280837033" target="pf163602808370321" source="pf163599677305920" outcome="DUPLICAR"/>
+  <links id="pf16360280837033" target="pf163602808370321" source="pf163599677305920" outcome="DUPLICAR_V1"/>
   <links id="pf163602983857243" target="pf163602808370321" source="pf163602983857244" outcome="EXITO" fromaction="#{Pisos_BEAN.duplicar}"/>
   <links id="pf163602983857242" target="pf163602983857244" source="pf163602808370321" outcome="DUPLICAR"/>
+  <links id="pf163603101939546" target="pf163603101939547" source="pf163599677305920" outcome="DUPLICAR_V2"/>
+  <links id="pf163603101939548" target="pf163603101939550" source="pf163603101939547" outcome="DUPLICAR"/>
+  <links id="pf163603101939549" target="pf163603101939547" source="pf163603101939550" outcome="EXITO" fromaction="#{Pisos_BEAN.duplicar_agente}"/>
 </pageflow:Pageflow>

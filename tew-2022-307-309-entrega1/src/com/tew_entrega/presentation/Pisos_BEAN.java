@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import com.tew_entrega.business.templates.Agente_SERVICE;
 import com.tew_entrega.business.templates.Piso_SERVICE;
 import com.tew_entrega.infrastructure.Factories;
 import com.tew_entrega.model.Agente;
@@ -47,6 +48,17 @@ public class Pisos_BEAN implements Serializable {
 		this.pisos = pisos;
 	}
 	
+	List<Agente> agentes;
+	
+	public List<Agente> getAgentes() {
+		return agentes;
+	}
+
+
+	public void setAgentes(List<Agente> agentes) {
+		this.agentes = agentes;
+	}
+
 	float filtro_precio_inferior;
 	float filtro_precio_superior;
 	String filtro_ciudad;
@@ -81,6 +93,24 @@ public class Pisos_BEAN implements Serializable {
 	public void setFiltro_ciudad(String filtro_ciudad) {
 		this.filtro_ciudad = filtro_ciudad;
 	}
+	
+	public String listados() {
+		Piso_SERVICE service_piso = Factories.services.createPisoSERVICE();
+		List<Piso> pisos = null;
+		try {
+			pisos = service_piso.getPisos();
+			this.pisos = pisos;
+		} catch (Exception e) {e.printStackTrace();}
+		
+		Agente_SERVICE service_agente = Factories.services.createAgenteSERVICE();
+		List<Agente> agentes = null;
+		try {
+			agentes = service_agente.getAgentes();
+			this.agentes = agentes;
+		} catch (Exception e) {e.printStackTrace();}
+		return "EXITO";
+		
+	} 
 
 
 	public String listado() {
@@ -148,7 +178,7 @@ public class Pisos_BEAN implements Serializable {
 	}
 	
 	
-	// Examen
+	// Examen Parte 1
 	public String duplicar() {
 		Piso_SERVICE service = Factories.services.createPisoSERVICE();
 		Boolean resultado = false;
@@ -161,6 +191,21 @@ public class Pisos_BEAN implements Serializable {
 		} catch (Exception e) {e.printStackTrace();}
 		return resultado ? "EXITO" : "ERROR";
 	}
+	
+	// Examen Parte 2
+		public String duplicar_agente() {
+			Piso_SERVICE service = Factories.services.createPisoSERVICE();
+			Boolean resultado = false;
+			try {
+				// Añadimos el id del agente que lo guarda.
+				//this.piso.setId_agente(getAgenteId());
+				// No hace falta pillar el agente de la sesion, puse ya esta introducido en el bean mediante el formulario.
+				//if (this.piso.getId() == null) resultado = service.save(this.piso);
+				if (this.piso.getId() != null) resultado = service.save(this.piso);
+				this.listado();
+			} catch (Exception e) {e.printStackTrace();}
+			return resultado ? "EXITO" : "ERROR";
+		}
 	
 	@PostConstruct
 	public void init() {
