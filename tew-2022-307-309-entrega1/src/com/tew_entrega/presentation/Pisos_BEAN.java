@@ -148,6 +148,19 @@ public class Pisos_BEAN implements Serializable {
 	}
 	
 	
+	// Examen
+	public String duplicar() {
+		Piso_SERVICE service = Factories.services.createPisoSERVICE();
+		Boolean resultado = false;
+		try {
+			// Añadimos el id del agente que lo guarda.
+			this.piso.setId_agente(getAgenteId());
+			//if (this.piso.getId() == null) resultado = service.save(this.piso);
+			if (this.piso.getId() != null) resultado = service.save(this.piso);
+			this.listado();
+		} catch (Exception e) {e.printStackTrace();}
+		return resultado ? "EXITO" : "ERROR";
+	}
 	
 	@PostConstruct
 	public void init() {

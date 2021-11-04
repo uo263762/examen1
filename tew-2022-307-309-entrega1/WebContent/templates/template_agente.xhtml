@@ -7,6 +7,7 @@
 	
 	<ui:define name="opciones">
 		<p:menuitem value="#{msgs.gestionar_pisos}" action="#{Pisos_BEAN.listado}"/>
+		<p:menuitem value="#{msgs.duplicar_pisos}" action="DUPLICAR" actionListener="#{Pisos_BEAN.listado}"/>
 		<p:menuitem value="#{msgs.confirmar_citas}" action="#{PisosParaVisitar_BEAN.listadoFiltroAgente}"/>
 		<p:menuitem value="#{msgs.reset_bd}" action="#{Login_BEAN.reset_base_de_datos}"/>
 	</ui:define>

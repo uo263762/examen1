@@ -70,6 +70,10 @@
 			<to-view-id>/app/agente/pisos.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
+			<from-outcome>DUPLICAR</from-outcome>
+			<to-view-id>/app/agente/duplicar_pisos.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
 			<from-action>#{PisosParaVisitar_BEAN.listadoFiltroAgente}</from-action>
 			<from-outcome>EXITO</from-outcome>
 			<to-view-id>/app/agente/citas_pendientes.xhtml</to-view-id>
@@ -87,6 +91,7 @@
 			<to-view-id>/app/agente/alta_piso.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
 	
 	<navigation-rule>
 		<from-view-id>/app/agente/alta_piso.xhtml</from-view-id>
@@ -113,6 +118,24 @@
 			<to-view-id>/app/agente/citas_pendientes.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/app/agente/duplicar_pisos.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>DUPLICAR</from-outcome>
+			<to-view-id>/app/agente/duplicar_piso.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/app/agente/duplicar_piso.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{Pisos_BEAN.duplicar}</from-action>
+			<from-outcome>EXITO</from-outcome>
+			<to-view-id>/app/agente/duplicar_pisos.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
 	
 	
 	
