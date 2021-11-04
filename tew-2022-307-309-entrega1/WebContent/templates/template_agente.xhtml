@@ -1,0 +1,14 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/template_usuario.xhtml">
+	
+	<ui:define name="opciones">
+		<p:menuitem value="#{msgs.gestionar_pisos}" action="#{Pisos_BEAN.listado}"/>
+		<p:menuitem value="#{msgs.confirmar_citas}" action="#{PisosParaVisitar_BEAN.listadoFiltroAgente}"/>
+		<p:menuitem value="#{msgs.reset_bd}" action="#{Login_BEAN.reset_base_de_datos}"/>
+	</ui:define>
+	
+</ui:composition>

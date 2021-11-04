@@ -1,0 +1,61 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/template_cliente.xhtml">
+
+	<ui:define name="cuerpo">
+		
+		<h:form>
+			<p:dataTable id="tablaPisos" var="piso" value="#{Pisos_BEAN.pisos}" border="1">
+				<p:column>
+					<f:facet name="header">#{msgs.precio}</f:facet>#{piso.precio}</p:column>
+				<p:column>
+					<f:facet name="header">#{msgs.direccion}</f:facet>#{piso.direccion}</p:column>
+				<p:column>
+					<f:facet name="header">#{msgs.ciudad}</f:facet>#{piso.ciudad}</p:column>
+				<p:column>
+					<f:facet name="header">#{msgs.ano}</f:facet>#{piso.ano}</p:column>
+				<p:column>
+					<f:facet name="header">#{msgs.estado}</f:facet>#{piso.estado}</p:column>
+				<p:column>
+					<center><f:facet name="header">#{msgs.cita}</f:facet><h:commandButton action="#{PisosParaVisitar_BEAN.pedirCita(piso)}" type="submit" value="#{msgs.cita}" immediate="true" update="@all"></h:commandButton></center></p:column>
+			</p:dataTable>
+		</h:form>
+
+		<h:form>
+			<center>
+				<p:panelGrid id="grid" columns="3">
+
+					<h:panelGroup>
+						<p:commandButton value="#{msgs.filtrar_por_ciudad}" action="FILTRAR_CIUDAD" actionListener="#{Pisos_BEAN.listadoFiltroCIUDAD()}" inmediate="true" update="@all"/>
+					</h:panelGroup>
+					
+					<h:panelGroup>
+						<p:inputText id="filtro_ciudad" value ="#{Pisos_BEAN.filtro_ciudad}"></p:inputText>
+					</h:panelGroup>
+					
+					<h:panelGroup>
+					</h:panelGroup>
+						
+
+					<h:panelGroup>
+						<p:commandButton value="#{msgs.filtrar}" action="FILTRAR_PRECIO" actionListener="#{Pisos_BEAN.listadoFiltroPRECIO()}" inmediate="true" update="@all"/>
+					</h:panelGroup>
+					
+					<h:panelGroup>
+						<p:spinner id="precio_inferior" value="#{Pisos_BEAN.filtro_precio_inferior}" stepFactor="10.00"></p:spinner>
+					</h:panelGroup>
+					
+					<h:panelGroup>
+						<p:spinner id="precio_superior" value="#{Pisos_BEAN.filtro_precio_superior}" stepFactor="20.00"></p:spinner>
+					</h:panelGroup>
+				
+				</p:panelGrid>
+			</center>
+		</h:form>
+		
+	</ui:define>
+
+</ui:composition>

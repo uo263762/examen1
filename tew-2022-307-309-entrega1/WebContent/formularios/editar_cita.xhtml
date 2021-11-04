@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<p:growl id="mensaje" showDetail="true" />
+
+	<h:panelGrid id="grid" columns="2" cellpadding="5">
+	
+		<h:panelGroup>
+			<h:outputLabel value="#{msgs.id_piso}" />
+		</h:panelGroup>
+		
+		<h:panelGroup>
+			<h:outputLabel value="#{PisoParaVisitar_BEAN.id_piso}" />
+		</h:panelGroup>
+		
+		<h:panelGroup>
+			<h:outputLabel value="#{msgs.id_cliente}" />
+		</h:panelGroup>
+		
+		<h:panelGroup>
+			<h:outputLabel value="#{PisoParaVisitar_BEAN.id_cliente}" />
+		</h:panelGroup>
+		
+		<h:panelGroup>
+			<h:outputLabel value="#{msgs.fecha_hora_cita}" />
+		</h:panelGroup>
+		
+		<h:panelGroup>
+			<p:inputText id="fecha_hora_cita" value="#{PisoParaVisitar_BEAN.fecha_hora_cita}" required="true" requiredMessage="#{msgs.fecha_hora_cita}: #{msgs.obligatorio}" />
+		</h:panelGroup>
+		
+		<h:panelGroup>
+			<h:outputLabel value="#{msgs.estado_visita}" />
+		</h:panelGroup>
+		
+		<h:panelGroup>
+			<h:outputLabel value="#{PisoParaVisitar_BEAN.estado_visita}" />
+		</h:panelGroup>
+		
+		
+	</h:panelGrid>
+	
+	<p:commandButton value="#{msgs.confirmar}" action="#{PisosParaVisitar_BEAN.confirmarCitaAgente}" actionListener="PisosParaVisitar_BEAN.listadoFiltroAgente" update="mensaje" ></p:commandButton>
+	
+</ui:composition>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+    
+    <application>
+		<resource-bundle>
+			<base-name>messages</base-name>
+			<var>msgs</var>
+		</resource-bundle>
+	</application>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>ERROR</from-outcome>
+			<to-view-id>/error.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>LOGOUT</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{Login_BEAN.check_login}</from-action>
+			<from-outcome>EXITO_AGENTE</from-outcome>
+			<to-view-id>/app/agente/home.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{Login_BEAN.check_login}</from-action>
+			<from-outcome>EXITO_CLIENTE</from-outcome>
+			<to-view-id>/app/cliente/home.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ALTA</from-outcome>
+			<to-view-id>/alta_cliente.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>alta_cliente.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>EXITO</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ERROR</from-outcome>
+			<to-view-id>/error.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>HOME</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/app/agente/*</from-view-id>
+		<navigation-case>
+			<from-outcome>HOME</from-outcome>
+			<to-view-id>/app/agente/home.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{Pisos_BEAN.listado}</from-action>
+			<from-outcome>EXITO</from-outcome>
+			<to-view-id>/app/agente/pisos.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{PisosParaVisitar_BEAN.listadoFiltroAgente}</from-action>
+			<from-outcome>EXITO</from-outcome>
+			<to-view-id>/app/agente/citas_pendientes.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/app/agente/pisos.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>EDITAR</from-outcome>
+			<to-view-id>/app/agente/alta_piso.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ALTA</from-outcome>
+			<to-view-id>/app/agente/alta_piso.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/app/agente/alta_piso.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{Pisos_BEAN.salvar}</from-action>
+			<from-outcome>EXITO</from-outcome>
+			<to-view-id>/app/agente/pisos.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/app/agente/citas_pendientes.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>CONFIRMAR</from-outcome>
+			<to-view-id>/app/agente/confirmar_cita.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/app/agente/confirmar_cita.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{PisosParaVisitar_BEAN.confirmarCitaAgente}</from-action>
+			<from-outcome>EXITO</from-outcome>
+			<to-view-id>/app/agente/citas_pendientes.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	
+	
+	<navigation-rule>
+		<from-view-id>/app/cliente/*</from-view-id>
+		<navigation-case>
+			<from-outcome>HOME</from-outcome>
+			<to-view-id>/app/cliente/home.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{Pisos_BEAN.listado}</from-action>
+			<from-outcome>EXITO</from-outcome>
+			<to-view-id>/app/cliente/pisos.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{PisosParaVisitar_BEAN.listadoFiltroCliente}</from-action>
+			<from-outcome>EXITO</from-outcome>
+			<to-view-id>/app/cliente/citas_pendientes.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/app/cliente/pisos.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>HOME</from-outcome>
+			<to-view-id>/app/cliente/home.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>VISITAR</from-outcome>
+			<to-view-id>/app/cliente/alta_cita.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{PisosParaVisitar.pedirCita}</from-action>
+			<from-outcome>ERROR</from-outcome>
+			<to-view-id>/app/cliente/error_cita.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+</faces-config>
+
+

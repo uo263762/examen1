@@ -1,0 +1,68 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<p:growl id="mensaje" showDetail="true" />
+
+	<h:panelGrid id="grid" columns="2" cellpadding="5">
+
+		<h:panelGroup>
+			<h:outputLabel value="#{msgs.login}" />
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<p:inputText id="login" value="#{Cliente_BEAN.login}"
+				required="true"
+				requiredMessage="#{msgs.login} #{msgs.obligatorio}" />
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<h:outputLabel value="#{msgs.password}" />
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<p:inputText id="password" value="#{Cliente_BEAN.password}"
+				required="true"
+				requiredMessage="#{msgs.password} #{msgs.obligatorio}" />
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<h:outputLabel value="#{msgs.nombre}" />
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<p:inputText id="nombre" value="#{Cliente_BEAN.nombre}"
+				required="true"
+				requiredMessage="#{msgs.nombre} #{msgs.obligatorio}" />
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<h:outputLabel value="#{msgs.apellidos}" />
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<p:inputText id="apellidos" value="#{Cliente_BEAN.apellidos}"
+				required="true"
+				requiredMessage="#{msgs.apellidos} #{msgs.obligatorio}" />
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<h:outputLabel value="#{msgs.email}" />
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<p:inputText id="email" value="#{Cliente_BEAN.email}"
+				required="true"
+				requiredMessage="#{msgs.email} #{msgs.obligatorio}" />
+		</h:panelGroup>
+
+	</h:panelGrid>
+	
+	<br/>
+
+	<p:commandButton value="#{msgs.enviar}"
+		action="#{Cliente_BEAN.salvar}" update="mensaje"></p:commandButton>
+
+</ui:composition>

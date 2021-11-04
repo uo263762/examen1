@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16359853700860" configfile="/tew-2022-307-309-entrega1/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" id="pf16359896560430" referenceLink="//@navigationRule.2/@navigationCase.2/@toViewId|" outlinks="pf16359896560431 pf16359896560432 pf16359896560433" inlinks="pf163599108134014 pf163599108134015 pf163599408680218" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="alta_cliente.xhtml" id="pf16359896560434" referenceLink="//@navigationRule.1/@navigationCase.2/@toViewId|" inlinks="pf16359896560431" path="/alta_cliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="app/agente/home.xhtml" id="pf16359896560435" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf16359896560432 pf163599677305819" path="/app/agente/home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="app/cliente/home.xhtml" id="pf16359896560436" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" inlinks="pf16359896560433" path="/app/cliente/home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf16359898504768" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf16359898504769 pf163599408680218" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="error.xhtml" id="pf163598985047610" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" inlinks="pf16359898504769 pf163599385216116" path="/error.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="formularios/editar_cliente.xhtml" id="pf163599105929913" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf163599108134014 pf163599108134015 pf163599385216116" path="alta_cliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="a" id="pf163599677305920" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf163599677305921 pf163599677305819" path="/app/agente/*"/>
+  <nodes xsi:type="pageflow:PFPage" name="app/agente/pisos.xhtml" id="pf163599677305922" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" inlinks="pf163599677305921" path="/app/agente/pisos.xhtml"/>
+  <links id="pf16359896560431" target="pf16359896560434" source="pf16359896560430" outcome="ALTA"/>
+  <links id="pf16359896560432" target="pf16359896560435" source="pf16359896560430" outcome="EXITO_AGENTE" fromaction="#{Login_BEAN.check_login}"/>
+  <links id="pf16359896560433" target="pf16359896560436" source="pf16359896560430" outcome="EXITO_CLIENTE" fromaction="#{Login_BEAN.check_login}"/>
+  <links id="pf16359898504769" target="pf163598985047610" source="pf16359898504768" outcome="ERROR"/>
+  <links id="pf163599108134014" target="pf16359896560430" source="pf163599105929913" outcome="EXITO"/>
+  <links id="pf163599108134015" target="pf16359896560430" source="pf163599105929913" outcome="HOME"/>
+  <links id="pf163599385216116" target="pf163598985047610" source="pf163599105929913" outcome="ERROR"/>
+  <links id="pf163599408680218" target="pf16359896560430" source="pf16359898504768" outcome="LOGOUT"/>
+  <links id="pf163599677305921" target="pf163599677305922" source="pf163599677305920" outcome="EXITO" fromaction="#{Pisos_BEAN.listado}"/>
+  <links id="pf163599677305819" target="pf16359896560435" source="pf163599677305920" outcome="HOME"/>
+</pageflow:Pageflow>

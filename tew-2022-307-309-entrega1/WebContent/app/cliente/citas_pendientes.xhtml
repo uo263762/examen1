@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/template_cliente.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form>
+			<p:dataTable id="citas" var="ppv" value="#{PisosParaVisitar_BEAN.pisos_para_visitar}" border="1">
+				<p:column>
+					<f:facet name="header">#{msgs.id_piso}</f:facet>#{ppv.id_piso}</p:column>
+				<p:column>
+					<f:facet name="header">#{msgs.fecha_hora_cita}</f:facet>#{ppv.fecha_hora_cita}</p:column>
+				<p:column>
+					<f:facet name="header">#{msgs.estado_visita}</f:facet>#{ppv.estado_visita}</p:column>
+				<p:column>
+					<center><f:facet name="header">#{msgs.confirmar}</f:facet><h:commandButton action="#{PisosParaVisitar_BEAN.confirmarCitaCliente(ppv)}" type="submit" value="#{msgs.confirmar}" immediate="true" update="citas"></h:commandButton></center></p:column>
+
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

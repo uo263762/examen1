@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:view locale="#{Idioma_BEAN.locale}">
+	
+		<h:head>
+			<title><ui:insert name="head">#{msgs.cabeza}</ui:insert></title>
+		</h:head>
+	
+		<h:body>
+		
+			<ui:insert name="cabeza">
+				<h:form>
+					<p:menubar>
+						<p:submenu label="#{msgs.opciones}">
+							<ui:insert name="cabeza_submenu">
+							<p:menuitem value="#{msgs.alta}" action="ALTA"></p:menuitem>
+							</ui:insert>
+						</p:submenu>
+						<p:submenu label="#{msgs.idioma}">
+							<p:menuitem value="#{msgs.espanol}" actionListener="#{Idioma_BEAN.setSpanish}" update="@all" />
+							<p:menuitem value="#{msgs.ingles}" actionListener="#{Idioma_BEAN.setEnglish}" update="@all" />
+						</p:submenu>
+					</p:menubar>
+				</h:form>
+			</ui:insert>
+			
+			<ui:insert name="cuerpo">#{msgs.cuerpo}</ui:insert>
+	
+			<ui:insert name="pie">#{msgs.pie}</ui:insert>
+			
+		</h:body>
+	</f:view>
+</html>

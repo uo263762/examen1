@@ -1,0 +1,58 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/template_general.xhtml">
+
+	<ui:define name="cuerpo">
+		<center>
+		
+			<p:growl id="mensaje" showDetail="true" />
+			
+			<h:form>
+
+				<p:panelGrid id="grid" columns="2">
+
+					<h:panelGroup>
+						<h:outputLabel value="#{msgs.login}" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<p:inputText id="login" value="#{Login_BEAN.login}"
+							required="true"
+							requiredMessage="#{msgs.login}: #{msgs.obligatorio}" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<h:outputLabel value="#{msgs.password}" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<p:password id="password" value="#{Login_BEAN.password}"
+							required="true"
+							requiredMessage="#{msgs.password}: #{msgs.obligatorio}" />
+					</h:panelGroup>
+				
+				</p:panelGrid>
+				
+				<br/>
+				
+				<p:commandButton action="#{Login_BEAN.check_login}" update="mensaje" value="#{msgs.acceder}"></p:commandButton>
+
+			</h:form>
+			
+			<p:commandButton value="#{msgs.alta}" action="ALTA"></p:commandButton>
+			
+		</center>
+	</ui:define>
+
+	<ui:define name="pie">
+		<center>
+			<br/>
+			<br/>
+			<p:commandButton value="#{msgs.debug}" action="#{Login_BEAN.printCookies}"></p:commandButton>
+		</center>
+	</ui:define>
+
+</ui:composition>
